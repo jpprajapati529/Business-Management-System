@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bms-app
+spec:
+  selector:
+    matchLabels:
+      app: bms-app
+  template:
+    metadata:
+      labels:
+        app: bms-app
+    spec:
+      containers:
+      - name: bms-container
+        image: jaijp/bms
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8093
