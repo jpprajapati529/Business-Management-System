@@ -24,7 +24,8 @@ jobs:
         docker build -t image:latest .
         docker compose up -d
         docker image ls
-        docker exec -it business-management-system-java-app bash
+        docker compose ps
+        # docker exec -it business-management-system-java-app bash
     
     - name: build maven
       run: mvn clean install
