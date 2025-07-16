@@ -24,6 +24,7 @@ jobs:
         docker build -t image:latest .
         docker compose up -d
         docker image ls
+        docker exec -it 40d3106862da bash
     
     - name: build maven
       run: mvn clean install
