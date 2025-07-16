@@ -1,0 +1,31 @@
+name: CI/CD pipeline
+on:
+  push:
+    branches: "main"
+  pull_request:
+    branches: "main"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    - uses: actions/checkout@v4
+    
+    steps:
+    
+    - name: "build maven"
+      run: mvn clean install
+
+    - name: "echo"
+      run: echo "build successfull"
+
+    - name: "docker build and deploy"
+      env: | 
+        DOCKER_REGISTRY: docker.io
+        DOCKER_USER: ${{secrets.DOCKERHUB_USERNAME}}
+        DOCKER_PASSWORD: ${{secrets.DOCKERHUB_PASSWORD}}
+        image: jaijp/bms
+
+      run: |
+        docker login -u ${{DOCKER_USER}} -P ${{DOCKER_PASSWORD}} ${{DOCKER_REGISTRY}}
+        docker build -t image:latest .
+        docker-compose up
