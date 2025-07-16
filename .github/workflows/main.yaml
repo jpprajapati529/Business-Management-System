@@ -30,4 +30,15 @@ jobs:
     - name: echo
       run: echo "build successfull"
 
-    
+    - name: kubectl setup
+      uses: azure/setup-kubectl@v3
+
+    - name: Kind setup
+      uses: helm/kind-action@v1
+
+    - name: deploy to k8s
+      run: |
+        kubectl apply -f app-service.yaml
+        kubectl apply -f app-deployment.yaml
+        kubectl apply -f postgres-service.yaml
+        kubectl apply -f postgres-statefulset.yaml
