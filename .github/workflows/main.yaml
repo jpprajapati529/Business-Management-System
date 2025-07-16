@@ -22,7 +22,7 @@ jobs:
       run: |
         docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD" "$DOCKER_REGISTRY"
         docker build -t image:latest .
-        docker-compose up -d
+        docker compose up -d
     
     - name: build maven
       run: mvn clean install
