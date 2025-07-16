@@ -7,19 +7,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    steps:
 
     - uses: actions/checkout@v4
     
-    steps:
-    
-    - name: "build maven"
+    - name: build maven
       run: mvn clean install
 
-    - name: "echo"
+    - name: echo
       run: echo "build successfull"
 
-    - name: "docker build and deploy"
-      env: | 
+    - name: docker build and deploy
+      env: 
         DOCKER_REGISTRY: docker.io
         DOCKER_USER: ${{secrets.DOCKERHUB_USERNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKERHUB_PASSWORD}}
