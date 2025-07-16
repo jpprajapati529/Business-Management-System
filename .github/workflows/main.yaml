@@ -34,7 +34,7 @@ jobs:
       uses: azure/setup-kubectl@v3
 
     - name: Kind setup
-      uses: helm/kind-action@v4
+      uses: helm/kind-action@v1
 
     - name: deploy to k8s
       run: |
