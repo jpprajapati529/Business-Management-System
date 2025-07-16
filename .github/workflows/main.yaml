@@ -11,12 +11,6 @@ jobs:
     steps:
 
     - uses: actions/checkout@v4
-    
-    - name: build maven
-      run: mvn clean install
-
-    - name: echo
-      run: echo "build successfull"
 
     - name: docker build and deploy
       env: 
@@ -28,4 +22,12 @@ jobs:
       run: |
         docker login -u $"DOCKER_USER" -P $"DOCKER_PASSWORD" $"DOCKER_REGISTRY"
         docker build -t image:latest .
-        docker-compose up
+        docker-compose up -d
+    
+    - name: build maven
+      run: mvn clean install
+
+    - name: echo
+      run: echo "build successfull"
+
+    
