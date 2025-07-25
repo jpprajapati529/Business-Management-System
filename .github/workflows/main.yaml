@@ -69,7 +69,7 @@ jobs:
 
     - name: wait for prom
       run: |
-        kubectl -n monitoring rollout status statefulset/prometheus-kube-prometheus-prometheus --timeout=2m
+        kubectl -n monitoring rollout status statefulset/prometheus-prometheus-kube-prometheus-prometheus --timeout=2m
         
     - name: validate
       run: |
