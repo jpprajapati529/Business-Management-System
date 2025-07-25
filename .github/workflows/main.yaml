@@ -63,6 +63,10 @@ jobs:
           --set alertmanager.alertmanagerSpec.replicaCount=2 \
           --wait --timeout 5m
 
+    - name: list all statefulsets
+      run: |
+        kubectl -n monitoring get statefulsets
+
     - name: wait for prom
       run: |
         kubectl -n monitoring rollout status statefulset/prometheus-kube-prometheus-prometheus --timeout=2m
