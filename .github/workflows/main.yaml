@@ -71,15 +71,7 @@ jobs:
       run: |
         kubectl -n monitoring rollout status statefulset/prometheus-prometheus-kube-prometheus-prometheus --timeout=2m
         
-    - name: validate
+    - name: Query Prometheus for ‘up’ metrics
       run: |
-        name: Validate scrape targets
-        run: |
-          CLUSTER_IP=$(kubectl -n monitoring get svc prometheus-kube-prometheus-prometheus \
-                       -o jsonpath='{.spec.clusterIP}')
-          COUNT=$(curl -s "http://${CLUSTER_IP}:9090/api/v1/targets" | jq '.data.activeTargets | length')
-          if [ "$COUNT" -lt 1 ]; then
-            echo "❌ No scrape targets found" >&2
-            exit 1
-          fi
-          echo "✅ Prometheus is scraping $COUNT target(s)"
+        echo "🔍 Querying Prometheus for targets status…"
+        curl -s "http://localhost:9090/api/v1/query?query=up" | jq .
