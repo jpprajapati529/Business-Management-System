@@ -20,7 +20,7 @@ jobs:
         image: jaijp/bms
 
       run: |
-        docker login -u "$DOCKER_USER" --password-stdin "$DOCKER_PASSWORD" "$DOCKER_REGISTRY"
+        echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USER" --password-stdin "$DOCKER_REGISTRY"
         docker build -t image:latest .
         docker push image:latest
         docker compose up -d
