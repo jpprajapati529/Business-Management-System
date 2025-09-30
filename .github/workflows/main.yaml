@@ -20,7 +20,7 @@ jobs:
         image: jaijp/bms
 
       run: |
-        docker buildx -t image:latest .
+        docker build -t image:latest .
         docker push image:latest
         docker compose up -d
     
