@@ -25,9 +25,9 @@ jobs:
 
       run: |
   
-        docker build -t image:latest .
-        docker tag image image:latest
-        docker push image:latest
+        docker build -t image .
+        docker tag bms image:bms
+        docker push image:bms
         docker compose up -d
     
     - name: build maven
