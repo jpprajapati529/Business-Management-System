@@ -26,7 +26,6 @@ jobs:
       run: |
   
         docker build -t image:v2 .
-        docker tag bms image:v2
         docker push image:v2
         docker compose up -d
     
