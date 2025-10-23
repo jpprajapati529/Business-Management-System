@@ -25,9 +25,9 @@ jobs:
 
       run: |
   
-        docker build -t image:v2 .
-        docker push image:v2
-        docker compose up -d
+        sudo docker build -t image:v2 .
+        sudo docker push image:v2
+        sudo docker compose up -d
     
     - name: build maven
       run: mvn clean install
