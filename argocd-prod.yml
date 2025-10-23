@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/jpprajapati529/Business-Management-System.git
+    targetRevision: main        # <--- Connects to the main branch
+    path: k8s/prod              # <--- Uses the prod config folder
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod             # <--- Deploys to the prod namespace
+  syncPolicy:
+    automated:                  # Enable automatic synchronization
+      prune: true
+      selfHeal: true
