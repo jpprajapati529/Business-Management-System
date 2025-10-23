@@ -21,7 +21,7 @@ jobs:
 
     - name: docker build and deploy
       env: 
-        image: jaijp/bms
+        image: jaijp/bms2
 
       run: |
   
