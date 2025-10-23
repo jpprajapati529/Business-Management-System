@@ -25,9 +25,9 @@ jobs:
 
       run: |
   
-        docker build -t image .
-        docker tag image image
-        docker push image
+        docker build -t image:latest .
+        docker tag image image:latest
+        docker push image:latest
         docker compose up -d
     
     - name: build maven
