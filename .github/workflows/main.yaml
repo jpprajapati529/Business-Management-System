@@ -26,7 +26,7 @@ jobs:
       run: |
   
         docker build -t image .
-        docker tag image image:v2
+        docker tag v2 image:v2
         docker push image:v2
         docker compose up -d
     
