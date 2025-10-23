@@ -21,12 +21,12 @@ jobs:
 
     - name: docker build and deploy
       env: 
-        image: jaijp/bms2
+        image: jaijp/bms
 
       run: |
   
         docker build -t image:v2 .
-        docker tag bms2 image:v2
+        docker tag bms image:v2
         docker push image:v2
         docker compose up -d
     
