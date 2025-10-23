@@ -25,7 +25,7 @@ jobs:
 
       run: |
   
-        docker buildx build -t image:v2 .
+        docker build -t image:v2 .
         docker push image:v2
         docker compose up -d
     
