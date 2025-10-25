@@ -32,7 +32,7 @@ jobs:
         docker image ls
         docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" "$DOCKER_REGISTRY"
         docker push jaijp/bms:bms
-        docker compose up -d
+        # docker compose up -d
     
     - name: build maven
       run: mvn clean install
