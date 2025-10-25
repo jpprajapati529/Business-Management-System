@@ -21,13 +21,17 @@ jobs:
 
     - name: docker build and deploy
       env: 
-        image: jaijp/bms
+        DOCKER_REGISTRY: docker.io
+        DOCKER_USERNAME: ${{secrets.DOCKERHUB_USERNAME}}
+        DOCKER_PASSWORD: ${{secrets.DOCKERHUB_TOKEN}
 
       run: |
   
-        docker build -t image .
-        docker tag image:latest image:latest
-        docker push image:latest
+        docker build -t bms .
+        docker tag bms jaijp/bms:bms
+        docker image ls
+        docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" "$DOCKER_REGISTRY"
+        docker push jaijp/bms:bms
         docker compose up -d
     
     - name: build maven
