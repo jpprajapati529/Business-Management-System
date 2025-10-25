@@ -23,7 +23,7 @@ jobs:
       env: 
         DOCKER_REGISTRY: docker.io
         DOCKER_USERNAME: ${{secrets.DOCKERHUB_USERNAME}}
-        DOCKER_PASSWORD: ${{secrets.DOCKERHUB_TOKEN}
+        DOCKER_PASSWORD: ${{secrets.DOCKERHUB_PASSWORD}
 
       run: |
   
