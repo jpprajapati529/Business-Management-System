@@ -52,7 +52,6 @@ jobs:
         kubectl apply -f k8s/prod/app-deployment.yaml
         kubectl apply -f k8s/prod/postgres-service.yaml
         kubectl apply -f k8s/prod/postgres-statefulset.yaml
-
     # - name: set up helm
     #   uses: azure/setup-helm@v3
     #   with:
