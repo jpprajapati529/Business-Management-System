@@ -9,7 +9,6 @@
           It provides a user-friendly interface for tasks like managing customer data, inventory, orders, and more.
 
 
-
 ## Features  :
 
 - **Customer Management**: Easily add, update, and delete customer information.
