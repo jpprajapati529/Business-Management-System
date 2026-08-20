@@ -17,7 +17,6 @@
 - **User Authentication**: Secure login and authentication for admin and staff members.
 - **Role-Based Access Control**: Define roles and permissions for different user types.
 - **Thymeleaf Templates**: Utilizes Thymeleaf for dynamic HTML templates.
-- **Database Integration**: Integrated with MySQL for data storage.
 
 
 
@@ -26,7 +25,6 @@
 
 - Spring Boot: Backend framework for building Java-based web applications.
 - Thymeleaf: Server-side Java template engine for dynamic HTML generation.
-- MySQL: Relational database management system for data storage.
 - IDE/Tool : Spring Tool Suite 4 (Eclipse)
 
 
@@ -44,30 +42,9 @@
 ![packageExplorer](https://github.com/SuhasKamate/Business_Management_Project/assets/126138738/3ea1eb7f-8e49-4b76-96e4-798b6b8e8715)
 
 
-4.Configure the database connection is application.properties (check the Database section for more information). <br>
+4.Run the project (by running main method is BusinessProjectApplication.java) OR right clink on the project > Run As > Spring Boot App. <br>
 
-5.Run the project (by running main method is BusinessProjectApplication.java) OR right clink on the project > Run As > Spring Boot App. <br>
-
-6.Open http://localhost:2330/home in any browser. <br>
-
-7.Now your tables will be created in the databse. <br>
-   - You have to add one admin data manually to login as admin, So add one admin data. <br>
-    
-
-
-
-## Database :
-
-MySQL can be used as the database for this project. 
-The database connection can be configured in the application.properties file, with the appropriate values for the following properties: <br>
-
-spring.datasource.name=[Your Database Name] <br>
-spring.datasource.url=jdbc:mysql://localhost:3306/[Your Database Name] <br>
-spring.datasource.password=[Your password] <br>
-spring.datasource.username=[Your username] <br>
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver <br>
-spring.jpa.hibernate.ddl-auto=update <br>
-server.port=2330[Optional] <br>
+5.Open http://localhost:8092/home in any browser. <br>
 
 
 
